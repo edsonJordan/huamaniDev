@@ -19,8 +19,8 @@ class CreateVideosTable extends Migration
             $table->string('slug');
             $table->text('extract');
             $table->enum('status', [0,1])->default(0);
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
             $table->timestamps();
         });
     }

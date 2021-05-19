@@ -58,4 +58,21 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+    /* Relation One to Many User - Post */
+    public function posts(){
+        return $this->hasMany('App\Models\Post');
+    }
+     /* Relation One to Many User - Video */
+    public function videos(){
+        return $this->hasMany('App\Models\Video');
+    }
+    /* Relation One to One Polymorphic  User - image */
+    public function image(){
+        return $this->morphOne('App\Models\Image', 'imageable');
+    }
+    /* Relation One to Many Polymorphic User - comment */
+    public function comments()
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
 }
