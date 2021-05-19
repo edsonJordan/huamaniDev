@@ -13,9 +13,16 @@ use Illuminate\Support\Facades\Route;
 | Quieres ser un programador o no ?? sigue escribiendo codigo carajo ¡¡¡
 |
 */
-/* Rutas para paginas */
-Route::get('/', [PageController::class, 'portfolio'])->name('home');
+/* Ruta para el portafolio */
+/* Route::get('/', function () {
+    return view('welcome');
+})->name('home'); */
+Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/portfolio', [PageController::class, 'portfolio'])->name('portfolio');
+Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/blog', [PageController::class, 'blog'])->name('blog');
+
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

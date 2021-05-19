@@ -6,12 +6,19 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function portfolio()
-    {
-        return "Esto sera tu portafolio";
+    public function home(){
+        return view('dashboard');
     }
-    public function blog()
-    {
-        return "Esto sera tu blog";
+    public function portfolio(){
+        return view('dashboard');
+    }
+    public function about(){
+        return view('dashboard');
+    }
+    public function contact(){
+        return view('dashboard');
+    }
+    public function blog(){
+        return view('dashboard');
     }
 }
