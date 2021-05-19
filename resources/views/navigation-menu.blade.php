@@ -14,7 +14,7 @@
         'active'    => request()->routeIs('about')],
         ['name'     => 'Blog',
         'route'     => route('blog'),
-        'active'    => request()->routeIs('blog')]
+        'active'    => request()->routeIs('blog')],
     ]
         ;
 @endphp
@@ -146,13 +146,12 @@
                     </x-jet-dropdown>
                 </div>
                     @else 
-
-                    <x-jet-nav-link href="{{$nav_link['route']}}" :active="$nav_link['active']">
+                    
                         <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{$nav_link['route']}}" :active="$nav_link['active']">
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
-                    </x-jet-nav-link>
+                    
+                  
+                        <a href="{{ route('login') }}" class=" ml-4 text-sm text-gray-700 underline">Log in</a>
+                  
                 
                 @endauth
             </div>
@@ -252,15 +251,20 @@
                 </div>
             </div>
                 @else
-                <x-jet-responsive-nav-link href="{{$nav_link['route']}}" :active="$nav_link['active']">
+                <div class="py-1 border-t border-gray-200 ">
+                <x-jet-responsive-nav-link href="{{route('login')}}" :active="request()->routeIs('login')">
                     <a href="{{ route('login') }}" class="ml-4 text-sm text-gray-700 underline">Log in</a>
                 </x-jet-responsive-nav-link>
                 
-                <x-jet-responsive-nav-link href="{{$nav_link['route']}}" :active="$nav_link['active']">
+                <x-jet-responsive-nav-link href="{{route('register')}}" :active="request()->routeIs('register')">
                     <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
                 </x-jet-responsive-nav-link>
-                
-            @endauth
+            </div>      
+        @endauth
+        
+    
+    
+    
     </div>
 
 </nav>
